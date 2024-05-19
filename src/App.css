@@ -1,38 +1,3769 @@
-.App {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+.logo img{
+  width: 100px;
+  height: 50px;
+}
+  body {
+    background-color: #f1f3f6;
+  }
+
+  header {
+    background-color: #00314a;
+    padding: 0 5%;
+    box-shadow: 0 10px 20px rgb(0, 0, 0/5%), 0 6px 6px rgb(0, 0, 0/6%);
+  }
+
+  header nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  .logo {
+    flex: 2;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo a {
+    text-decoration: none;
+    font-size: 26px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 800;
+  }
+
+  .bartoggle,
+  #menubrop {
+    display: none;
+  }
+  .NavMenu {
+    z-index: 1000;
+  }
+  
+  .NavMenu li ul {
+    /* position: absolute; */
+    z-index: 999; /* Adjust the z-index value */
+  }
+  
+  .NavMenu {
+    flex: 10;
+    list-style: none;
+    position: relative;
+    display: flex;
+    justify-content: end;
+  }
+
+  .NavMenu li {
+    display: inline-block;
+  }
+
+  .NavMenu li input {
+    display: none;
+  }
+
+  .NavMenu li a {
+    display: block;
+    padding: 15px 16px;
+    margin-top: 10px;
+    font-size: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    position: relative;
+  }
+
+  .NavMenu li a label {
+    cursor: pointer;
+    appearance: none;
+    display: block;
+    position: relative;
+  }
+
+  .NavMenu li a label::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 20px;
+  }
+
+  .NavMenu>li>a label::after {
+    right: -15px;
+    top: -3px;
+  }
+
+  .NavMenu li ul {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    max-width: 140px;
+    border-bottom: 2px solid #000000;
+    top: 100%;
+    box-shadow: 0 3px 5px rgb(0 0 0/20%);
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transform: translateY(10px);
+    -webkit-transform: translateY(10px);
+    -moz-transform: translateY(10px);
+    -ms-transform: translateY(10px);
+    -o-transform: translateY(10px);
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .NavMenu li ul li {
+    position: relative;
+  }
+
+  .NavMenu li ul li a {
+    color: #00314a;
+    padding: 8px 10px;
+    display: block;
+    border-left: 2px solid transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+  }
+
+  .NavMenu li ul li ul {
+    position: absolute;
+    left: 100%;
+    top: 0;
+  }
+
+  @media(min-width:992px) {
+    .NavMenu li ul li a:hover {
+      border-left: 3px solid #000000;
+    }
+
+    .NavMenu li:hover>ul,
+    .NavMenu li ul li:hover>ul {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+      -webkit-transform: translateY(0);
+      -moz-transform: translateY(0);
+      -ms-transform: translateY(0);
+      -o-transform: translateY(0);
+    }
+  }
+
+  @media(max-width:991.98px) {
+    header {
+      padding: 6px 5%;
+    }
+
+    .logo {
+      flex: 6;
+    }
+
+    .bartoggle {
+      display: flex;
+      justify-content: center;
+      font-size: 30px;
+      align-items: center;
+      background-color: #fff;
+      padding: 0 10px;
+      cursor: pointer;
+    }
+
+    .NavMenu {
+      width: 100%;
+      flex: 12;
+      position: fixed;
+      flex-direction: column;
+      background-color: #00314a;
+      left: 0;
+      top: 40px;
+      height: 100vh;
+      z-index: 1000; /* Increase the z-index value */
+      padding: 15px 0 50px 0;
+      justify-content: start;
+      overflow-y: scroll;
+      transition: all 0.5s;
+      -webkit-transition: all 0.5s;
+      -moz-transition: all 0.5s;
+      -ms-transition: all 0.5s;
+      -o-transition: all 0.5s;
+      transform: translateX(-100%);
+      -webkit-transform: translateX(-100%);
+      -moz-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+      -o-transform: translateX(-100%);
+    }
+
+    .NavMenu li ul,
+    .NavMenu li ul li ul {
+      position: initial;
+      left: 0;
+      visibility: visible;
+      opacity: 1;
+      top: 0;
+      display: none;
+    }
+
+    .NavMenu li a {
+      padding: 8px 15px;
+      border-bottom: 1px solid #fff;
+    }
+
+    .NavMenu li ul li ul {
+      background:#00314a;
+
+      position: inherit;
+      margin-top: -10px;
+    }
+
+    .NavMenu li ul li ul li a {
+      font-size: 12px;
+      color: #fff;
+      font-weight: 400;
+      text-transform: initial;
+      padding: 7px 15px 7px 30px;
+    }
+
+    .NavMenu li a label::after {
+      right: 10px;
+    }
+
+    .NavMenu li input:checked+ul,
+    .NavMenu li ul li input:checked+ul {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+    }
+
+    input:checked+.NavMenu {
+      transform: translateX(0);
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -ms-transform: translateX(0);
+      -o-transform: translateX(0);
+    }
+
+  }
+
+  @media(max-width:768px) {
+    .NavMenu {
+      width: 100%;
+    }
+  }
+     
+
+/* footer */
+
+.container{
+	max-width: 1170px;
+	margin:auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+	background-color: #00314a;  
+    padding:70px 0;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #000000;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 13px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+.footer-col ul li p{
+  font-size: 12px;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}
+
+
+/* home*/
+.home-sec-1{
+  background: white;
+margin-top: 0px;
+}
+.home-content{
+  display: flex;
+  gap:20px;
+  justify-content: center;
+}
+.home-content-1{
+  width: 250px;
+  height: 230px;
+  /* border-radius: 10px; */
+  background: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+
+
+}
+.home-content-1 img{
+  margin-left: 40%;
+  margin-top: 10px;
+  width: 50px;
+}
+.home-sec-1 h2{
   text-align: center;
+  padding: 20px;
+  margin-bottom: 10px;
+  margin-top: 80px;
+}
+.home-content-1 h4{
+  text-align: center;
+  padding: 2px;
+  margin-top: 10px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 1px;
+}
+.home-content-1 p{
+  width: 220px;
+  margin-left: 15px;
+  margin-top: 10px; 
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 100;
+  letter-spacing: 1px;
+  font-size: 14px;
+  margin-bottom: 10px;
+ 
+}
+.home-content-1 a{
+  padding: 5px;
+  margin-left: 10px;
+  font-weight: bolder;
+}
+.home-content-2{
+  width: 250px;
+  height: 230px;
+
+  background: #ffffff;
+  /* border-radius: 10px; */
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+
+
+}
+.home-content-2 img{
+  margin-left: 40%;
+  margin-top: 10px;
+  width: 50px;
+
+}
+.home-content-2 h4{
+  text-align: center;
+  padding: 2px;
+  margin-top: 10px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 1px;
+}
+.home-content-2 p{
+  width: 220px;
+  margin-left: 15px;
+  margin-top: 10px; 
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 14px;
+margin-bottom: 10px;
+}
+.home-content-2 a{
+  padding: 5px;
+  margin-left: 10px;
+  font-weight: bolder;
+}
+.home-content-3{
+  width: 250px;
+  height: 230px;
+  background: #ffffff;
+  /* border-radius: 10px; */
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+
+
+}
+.home-content-3 img{
+  margin-left: 40%;
+  margin-top: 10px;
+  width: 50px;
+
+}
+.home-content-3 h4{
+  text-align: center;
+  padding: 2px;
+  margin-top: 10px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 1px;
+}
+.home-content-3 p{
+  width: 220px;
+  margin-left: 15px;
+  margin-top: 10px; 
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 14px;
+  font-weight: 100;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+ 
+}
+.home-content-3 a{
+  padding: 5px;
+  margin-left: 10px;
+  font-weight: bolder;
+}
+.home-content-4{
+  width: 250px;
+  height: 230px;
+  background: #ffffff;
+  /* border-radius: 10px; */
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+
+
+}
+.home-content-4 img{
+  margin-left: 40%;
+  margin-top: 10px;
+  width: 50px;
+
+}
+.home-content-4 h4{
+  text-align: center;
+  padding: 2px;
+  margin-top: 10px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 1px;
+}
+.home-content-4 p{
+  width: 220px;
+  margin-left: 15px;
+  margin-top: 10px; 
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 13px;
+margin-bottom: 10px;
+}
+.home-content-4 a{
+  padding: 5px;
+  margin-left: 10px;
+  font-weight: bolder;
+}
+.home-content-sec-2{
+  display: flex;
+  gap:40px;
+  justify-content: center;
+  padding: 20px;
+}
+.home-content-sec-01{
+  width: 300px;
+  height: 250px;
+  /* border-radius: 10px; */
+  background: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+
+
+}
+.home-content-sec-01 img{
+  margin-left: 40%;
+  margin-top: 10px;
+  width: 50px;
+
+}
+.home-content-sec-01 h4{
+  text-align: center;
+  padding: 2px;
+  margin-top: 10px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 1px;
+}
+.home-content-sec-01 p{
+  width: 280px;
+  margin-left: 15px;
+  margin-top: 10px; 
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 100;
+  letter-spacing: 1px;
+  font-size: 14px;
+ margin-bottom: 10px;
+}
+.home-content-sec-01 a{
+  padding: 5px;
+  margin-left: 10px;
+  font-weight: bolder;
+}
+.home-content-sec-02{
+  width:300px;
+  height: 250px;
+  background: #ffffff;
+  /* border-radius: 10px; */
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+
+
+}
+.home-content-sec-02 img{
+  margin-left: 40%;
+  margin-top: 10px;
+  width: 50px;
+  
+}
+.home-content-sec-02 h4{
+  text-align: center;
+  padding: 2px;
+  margin-top: 10px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 1px;
+}
+.home-content-sec-02 p{
+  width: 280px;
+  margin-left: 15px;
+  margin-top: 10px; 
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 14px;
+margin-bottom: 10px;
+
+}
+.home-content-sec-02 a{
+  padding: 5px;
+  margin-left: 10px;
+  font-weight: bolder;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@media only screen and (max-width: 767px) {
+  .home-content-sec-2 ,.home-content{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .home-content-sec-01,
+  .home-content-sec-02,.home-content {
+    width: 100%; /* Full width on smaller screens */
+ margin-bottom: 20px; /* Add some space between items */
+  }
+  
+  
+}
+    
+
+/* home section-3 */
+
+.home-section-3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background:rgb(244, 244, 255)
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.image-container {
+  flex: 1;
+}
+
+.image-container img {
+  width: 500px;
+  height: 300px;
+  
+  /* border-radius: 8px; Optional: Add border radius for a rounded appearance */
+}
+
+.h-sec-3-content-container {
+  flex: 1;
+  padding: 0 10px; /* Adjust the padding as needed */
+  
+}
+
+.h-sec-3-content {
+  max-width: 600px; /* Adjust the max-width of the content */
+  margin: auto;
+  padding: 10px;
+  line-height: 19px;
+}
+.h-sec-3-content h2{
+  margin-bottom: 10px;
+}
+.h-sec-3-content p{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+}
+.h-sec-3-content a{
+margin-top: 20px;
+font-weight: bold;
+}
+
+/* Responsive styling */
+@media screen and (max-width: 768px) {
+  .home-section-3 {
+    flex-direction: column; /* Stack items vertically */
+    text-align: center; /* Center align text */
+  }
+
+  .image-container img {
+    width: 100%; /* Make the image full-width */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .h-sec-3-content-container,
+  .image-container {
+    margin-bottom: 20px; /* Add spacing between the sections */
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+
+
+.button-26 {
+  appearance: button;
+  background-color: #00164d;
+  border: 1px solid #1652F0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Graphik,-apple-system,system-ui,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+  font-size: 12px;
+  line-height: 1.15;
+  overflow: visible;
+  padding: 12px 16px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transition: all 80ms ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+}
+
+.button-26:disabled {
+  opacity: .5;
+}
+
+.button-26:focus {
+  outline: 0;
+}
+
+.button-26:hover {
+  background-color: #00154c;
+  border-color: #00113b;
+}
+
+.button-26:active {
+  background-color: #011342;
+  border-color: #000d30;
+}
+/* home-sec-4 */
+
+.home-sec-4{
+  height: 250px;
+  background: #00314a;
+}
+.home-sec-4 h2{
+text-align: center;
+padding-top: 15px;
+color: white;
+
+}
+.home-sec-4-contain-1 p{
+  width: 800px;
+  margin-left: 18%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+color: white;
+
+}
+.home-sec-4-contain-1 h5 {
+  text-align: center;
+  padding: 5px;
+color: white;
+
+}
+.home-sec-4-contain-2 h5 {
+  text-align: center;
+  padding: 5px;
+color: white;
+
+
+}
+.home-sec-4-contain-3 h5 {
+  text-align: center;
+  padding: 5px;
+color: white;
+
+
+}
+.home-sec-4-contain-1 h6{
+  text-align: center;
+color: white;
+
+}
+.home-sec-4-contain-2 h6{
+  text-align: center;
+color: white;
+
+}
+.home-sec-4-contain-3 h6{
+  text-align: center;
+color: white;
+
+}
+.home-sec-4-contain-2 p{
+  width: 800px;
+  margin-left: 18%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+color: white;
+
+}
+.home-sec-4-contain-3 p{
+  width: 800px;
+  margin-left: 18%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;  
+color: white;
+}
+.slider-container {
+  max-width: 100%;
+  height: 300px;
+  margin: auto;
+  position: relative;
+}
+
+@media only screen and (max-width: 767px) {
+  .home-sec-4-contain-1 p,
+  .home-sec-4-contain-2 p,
+  .home-sec-4-contain-3 p {
+    width: 80%;
+    margin: 20px auto;
+    font-size: 10px;
+  }
+}
+
+/* home sec-5 */
+.home-sec-5-image{
+  display: flex;
+  gap: 8%;
+  justify-content: center;
+  height:100px;
+  padding: 20px;
+}
+.home-sec-5-image img{
+  width: 90px;
+  height: 60px;
+}
+
+@media only screen and (max-width: 767px) {
+  .home-sec-5-image {
+    height: auto;
+    gap: 15px;
+    flex-direction: column; /* Stack content vertically on smaller screens */
+    align-items: center;
+  }
+}
+.slider-container {
+width: fit-content;
+}
+
+.slider-container img {
+  width: 100%;
+  height: 300px;
+}
+
+
+
+/* ImageSlider.css */
+
+/* Hide slick-prev and slick-next */
+.slick-prev, .slick-next {
+  display: none !important;
+}
+
+
+/* about */
+.abt-container{
+
+    height: 200px;
+    background-image: url('/public/images/abt-back.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.abt-sec-1{
+  background: #fff;
+  height: 350px;
+}
+.abt-container h1{
+  color: white;
+  text-align: center;
+  padding-top: 100px;
+  
+}
+.abt-image-content-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow the items to wrap to the next line on smaller screens */
+  max-width: 900px; 
+  margin:0 auto;
+  /* margin-top: 50px; */
+  margin-bottom: 20px;
+}
+
+.abt-image-container {
+  flex: 1;
+  overflow: hidden;
+  margin-top: 50px;
+  margin-right: 100px;
+}
+
+.abt-image-container img {
+  width: 100%;
+  height: auto;
+  display: block; 
+}
+
+.abt-content-container {
+  flex: 1;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-top: 20px;
+}
+.abt-content-container h1{
+margin-bottom: 10px;
+}
+
+.abt-content-container p{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 100;
+  letter-spacing: 1px;
+  font-size: 15px;
+}
+/* Additional styling for aesthetics */
+
+
+
+/* Media query for responsiveness */
+@media (max-width: 600px) {
+  .abt-image-content-container {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+  }
+
+  .abt-image-container,
+  .abt-content-container {
+    flex: none; /* Reset flex property to allow items to take full width */
+    width: 100%; /* Set width to 100% on smaller screens */
+  }
+  .abt-sec-2-boxes {
+    display: flex;
+    flex-direction: column;
+    margin-top: 500px;
+    margin-bottom: 200px;
+
+  }
+
+  .abt-box-1,
+  .abt-box-2,
+  .abt-box-3 {
+    width: 100%;
+    margin-bottom: 20px;
+
+  }
+  
+}
+
+
+
+.abt-sec-2{
+  background-color: white;
+}
+.abt-sec-2-boxes{
+  height: 350px;
+}
+.abt-sec-2-boxes{
+  display:flex;
+  gap: 6%;
+  justify-content: center;
+  padding-top: 50px;
+  align-items: center;
+
+}
+.abt-box-1,.abt-box-2,.abt-box-3 {
+  width: 300px;
+  height: 250px;
+  background: #fafafd;
+  border-radius: 2px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+}
+
+.abt-box-1 img,.abt-box-2 img,.abt-box-3 img{
+  width: 60px;
+  height: 50px;
+  margin-top: 10px;
+  margin-left: 40%;
+  transition: transform 0.3s ease;
+}
+.abt-box-1:hover img ,.abt-box-2:hover img,.abt-box-3:hover  img {
+  transform: translateY(-8px); /* Adjust the distance the image moves up on hover */
+}
+.abt-box-1 h4,.abt-box-2 h4,.abt-box-3 h4{
+  margin-left: 35%;
+  margin-top: 15px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 1px;
+}
+.abt-box-1 p,.abt-box-2 p,.abt-box-3 p{
+width: 250px;
+margin-left: 30px;
+margin-top: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+}
+/* Your existing styles go here */
+
+/* WhatsApp and Call buttons styling */
+.floating-buttons {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 999;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.floating-buttons a {
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+.whatsapp-button,
+.call-button {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-color: #25d366; /* WhatsApp color */
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50px;
+  color: #fff;
+  font-size: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.whatsapp-button img,
+.call-button img {
+  width: 100%;
+  height: auto;
+}
+
+/* contact */
+.contact-container{
+  height: 200px;
+  background-image: url('/public/images/contact-back.jpg');
+  background-size:cover;
+  background-position:auto;
+}
+
+.contact-container h1{
+  text-align: center;
   color: white;
+  padding-top: 90px;
+}
+.contact-sec-1{
+  height: 300px;
+  background: #ffffff;
+  /* padding-top: 50px; */
+  
+}
+.contact-sec-1 h1{
+  text-align: center;
+  padding-top: 20px;
+  margin-bottom: 40px;
 }
 
-.App-link {
-  color: #61dafb;
+.button-38 {
+  font-size: 12px;
+  color: #000000;
+  font-family: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: color;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.button-38:focus,
+.button-38:hover {
+  color: #181717;
+}
+
+.button-38:focus:after,
+.button-38:hover:after {
+  width: 100%;
+  left: 0%;
+}
+
+.button-38:after {
+  content: "";
+  pointer-events: none;
+  bottom: -2px;
+  left: 50%;
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #000000;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: width, left;
+}
+
+
+.contact-boxes {
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+  margin-left: 8%;
+}
+.contact-box-1{
+height: 150px;
+width: 200px;
+background: #ffffff;
+border-radius: 10px;
+box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.contact-box-2{
+  height: 150px;
+  width: 200px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.contact-box-3{
+    height: 150px;
+    width: 200px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.contact-box-1 img,.contact-box-2 img,.contact-box-3 img{
+  width: 40px;
+  height: 40px;
+  margin-top: 10px;
+  margin-left: 40%;
+}
+
+.contact-box-1 h3,.contact-box-2 h3,.contact-box-3 h3{
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.contact-box-1 button,
+.contact-box-2 button,
+.contact-box-3 button {
+  margin-left: auto;
+  margin-right: auto;
+  display: block; /* Ensures the button is displayed as a block-level element */
+  margin-top: 10px;
+}
+
+.contact-sec-2{
+  height: 600px;
+  /* background: white; */
+}
+.contact-sec-2 h2{
+text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.map-container {
+  width: 400px;
+  height: 400px;
+padding-left: 100px;
+margin-top: 50px;
+}
+
+.contact-form-container {
+  width: 80%;
+  max-width: 400px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+  margin-left: 100px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 6px;
+}
+
+input, textarea {
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  background-color: #040244;
+  color: white;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #16064d;
+}
+
+@media only screen and (max-width: 600px) {
+  .contact-form-container {
+    width: 90%;
   }
-  to {
-    transform: rotate(360deg);
+
+  .contact-boxes {
+    flex-direction: column;
+    row-gap: 20px; /* Arrange boxes in a horizontal line */
+    place-items: center;
+    margin-top: 20px;
   }
+  .contact-sec-1{
+    height: 600px ;
+  }
+  .contact-sec-2{
+    height: auto;
+  }
+  .contact-sec-2-container{
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  .contact-form-container{
+    margin-left: 10px;
+
+  }
+  .map-container{
+    width: 90%;
+    height: 90%;
+   place-items: center;
+  }
+  .map-container iframe {
+    height: 400px;
+    width: fit-content; /* Set a different height for larger screens */
+    margin-left: -70px;
+    margin-bottom: 20px;
+  }
+}
+.contact-sec-2-container{
+  display: flex;
+}
+
+
+
+/* Tax Registration */
+.GSTReg-container{
+  height: 200px;
+  background-image: url('/public/images/contact-back.jpg');
+  background-size:cover;
+  background-position:auto;
+}
+.GSTReg-container h1{
+  text-align: center;
+  color: white;
+  padding-top: 90px;
+}
+.GSTReg-content-1 h3,.GSTReg-content-2 h3,.GSTReg-content-3 h3,.GSTReg-content-4 h3,.GSTReg-content-5 h3,.GSTReg-content-6 h3{
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.GSTReg-content-1 p,.GSTReg-content-2 p,.GSTReg-content-3 p,.GSTReg-content-4 p,.GSTReg-content-5 p,.GSTReg-content-6 p,.GSTReg-content-7 p{
+text-align: center;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+
+}
+.GSTReg-Content,.GSTReg-Content-7 {
+  /* display: flex; */
+  flex-wrap: wrap;
+}
+
+.GSTReg-content-1,
+.GSTReg-content-2,
+.GSTReg-content-3,
+.GSTReg-content-4,
+.GSTReg-content-5,
+.GSTReg-content-6 {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.GSTReg-content-1 p,
+.GSTReg-content-2 p,
+.GSTReg-content-3 p,
+.GSTReg-content-4 p,
+.GSTReg-content-5 p,
+.GSTReg-content-6 p
+{
+  width: 80%;
+  margin: 0 auto; /* Center the paragraph within the container */
+  text-align: justify;
+}
+
+@media screen and (min-width: 768px) {
+  .GSTReg-content-1,
+  .GSTReg-content-2,
+  .GSTReg-content-3,
+  .GSTReg-content-4,
+  .GSTReg-content-5,
+  .GSTReg-content-6 {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .GSTReg-content-1,
+  .GSTReg-content-2,
+  .GSTReg-content-3,
+  .GSTReg-content-4,
+  .GSTReg-content-5,
+  .GSTReg-content-6 {
+    width: 33.33%;
+  }
+}
+.GSTReg-content-7 ul {
+  list-style-type: disc; /* Apply disc style to the list */
+  padding-left: 20px; 
+}
+.ul-list ul {
+  list-style-type: disc; /* Apply disc style to the list */
+  
+}
+
+
+.GSTReg-content-7 h3 {
+  text-align: center;
+  letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.GSTReg-content-7 h5 {
+  text-align: center;
+  text-decoration: underline;
+}
+.GSTReg-content-7 p{
+  text-align: center;
+  width: 80%;
+  margin: 0 auto; 
+  text-align: justify;
+}
+
+.GSTReg-content-7 h3,
+.GSTReg-content-7 h6,
+.GSTReg-content-7 ul,
+.GSTReg-content-7 p {
+  margin: 10px 0; 
+}
+
+.GSTReg-content-7 ul {
+  list-style-type: disc;
+  padding-left: 15px; 
+  margin-left: 45%;
+
+}
+.GSTReg-content-7 ul li{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 13px;
+}
+/* Media query for mobile view */
+@media screen and (max-width: 768px) {
+  .GSTReg-content-7 h6 {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+
+  .GSTReg-content-7 ul {
+    padding-left: 15px; /* Adjust padding for smaller screens */
+  }
+}
+
+/* incometax container */
+.IncometaxReturn-container{
+  height: 200px;
+  background-image: url('/public/images/contact-back.jpg');
+  background-size:cover;
+  background-position:auto;
+}
+.IncometaxReturn-container h1{
+  text-align: center;
+  color: white;
+  padding-top: 90px;
+}
+
+.IncometaxReturn-Content h3{
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.IncometaxReturn-Content-1 p,.IncometaxReturn-Content-2 p,.IncometaxReturn-Content-3 p{
+text-align: center;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+
+}
+.IncometaxReturn-Content {
+  /* display: flex; */
+  flex-wrap: wrap;
+}
+
+.IncometaxReturn-Content-1 ,.IncometaxReturn-Content-2,.IncometaxReturn-Content-3 {
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.IncometaxReturn-Content-1 p,.IncometaxReturn-Content-2 p,.IncometaxReturn-Content-3 p
+{
+  width: 80%;
+  margin: 0 auto; /* Center the paragraph within the container */
+  text-align: justify;
+}
+
+@media screen and (min-width: 768px) {
+  .IncometaxReturn-Content-1,.IncometaxReturn-Content-2,.IncometaxReturn-Content-3  {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+ .IncometaxReturn-Content-1 ,.IncometaxReturn-Content-2 ,.IncometaxReturn-Content-3 {
+    width: 33.33%;
+  }
+}
+
+
+.IncometaxReturn-Content-4 ul {
+  list-style-type: disc; /* Apply disc style to the list */
+  padding-left: 20px; 
+}
+.IncometaxReturn-Content-4 h3 {
+  text-align: center;
+  letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.IncometaxReturn-Content-4 h5 {
+  /* text-align: center; */
+  margin-left: 30%;
+  text-decoration: underline;
+}
+.IncometaxReturn-Content-4 p{
+  text-align: center;
+  width: 80%;
+  margin: 0 auto; 
+  text-align: justify;
+}
+
+.IncometaxReturn-Content-4 h3,
+.IncometaxReturn-Content-4 h6,
+.IncometaxReturn-Content-4 ul,
+.IncometaxReturn-Content-4 p {
+  margin: 10px 0; 
+}
+
+.IncometaxReturn-Content-4 ul {
+  list-style-type: disc;
+  padding-left: 15px; 
+  margin-left: 30%;
+
+}
+.IncometaxReturn-Content-4 ul li{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 13px;
+}
+/* Media query for mobile view */
+@media screen and (max-width: 768px) {
+  .IncometaxReturn-Content-4 h6 {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+
+  .IncometaxReturn-Content-4 ul {
+    padding-left: 15px; /* Adjust padding for smaller screens */
+  }
+}
+
+/* TDS RETURN */
+.TDSReturn-container{
+  height: 200px;
+  background-image: url('/public/images/contact-back.jpg');
+  background-size:cover;
+  background-position:auto;
+}
+.TDSReturn-container h1{
+  text-align: center;
+  color: white;
+  padding-top: 90px;
+}
+
+.TDSReturn-content h3{
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.TDSReturn-content h5{
+  text-decoration: underline;
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.TDSReturn-content-1 p,.TDSReturn-content-2 p{
+text-align: center;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+
+}
+.TDSReturn-content {
+  /* display: flex; */
+  flex-wrap: wrap;
+}
+
+.TDSReturn-content-1 h3,.TDSReturn-content-2 h3 {
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.TDSReturn-content p
+{
+  width: 80%;
+  margin: 0 auto; /* Center the paragraph within the container */
+  text-align: justify;
+}
+
+@media screen and (min-width: 768px) {
+  .TDSReturn-content-1 {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+ .TDSReturn-content{
+    width: 33.33%;
+  }
+}
+.TDSReturn-content-1 ul,.TDSReturn-content-2 ul,.TDSReturn-content-3 ul {
+  list-style-type: disc; /* Apply disc style to the list */
+  padding-left: 20px; 
+  padding: 10px;
+}
+
+
+
+.TDSReturn-content-1 ul,.TDSReturn-content-2 ul,.TDSReturn-content-3 ul {
+  list-style-type: disc;
+  padding-left: 15px; 
+  margin-left: 30%;
+
+}
+.TDSReturn-content-1 ul li,.TDSReturn-content-2 ul li,.TDSReturn-content-3 ul li{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 13px;
+}
+/* Media query for mobile view */
+@media screen and (max-width: 768px) {
+  .TDSReturn-content-1 h6 {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+
+  .TDSReturn-content-1 ul {
+    padding-left: 15px; /* Adjust padding for smaller screens */
+  }
+}
+
+/* PAN-TAN REGISTRATION */
+.PanTan-container{
+  height: 200px;
+  background-image: url('/public/images/contact-back.jpg');
+  background-size:cover;
+  background-position:auto;
+}
+.PanTan-container h1{
+  text-align: center;
+  color: white;
+  padding-top: 90px;
+}
+.PanTan-content h3,.PanTan-content h4{
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-decoration: underline;
+}
+.PanTan-content h5{
+  text-decoration: underline;
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.PanTan-content-1 p,.PanTan-content-2 p,.PanTan-content-3 p,.PanTan-content-4 p  {
+text-align: center;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+
+}
+.PanTan-content {
+  /* display: flex; */
+  flex-wrap: wrap;
+}
+
+.PanTan-content-1 h3,.PanTan-content-2 h3,.PanTan-content-3 h3,.PanTan-content-4 h3{ 
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.PanTan-content p
+{
+  width: 80%;
+  margin: 0 auto; /* Center the paragraph within the container */
+  text-align: justify;
+}
+
+@media screen and (min-width: 768px) {
+  .PanTan-content {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+ .PanTan-content{
+    width: 33.33%;
+  }
+}
+.PanTan-content-1 ul ,.PanTan-content-2 ul,.PanTan-content-3 ul,.PanTan-content-4 ul {
+  list-style-type: disc; /* Apply disc style to the list */
+  padding-left: 20px; 
+  padding: 10px;
+}
+
+
+
+.PanTan-content-1 ul,.PanTan-content-2 ul,.PanTan-content-3 ul ,.PanTan-content-4 ul {
+  list-style-type: disc;
+  padding-left: 15px; 
+  margin-left: 30%;
+
+}
+.PanTan-content-1 ul li,.PanTan-content-2 ul li,.PanTan-content-3 ul li,.PanTan-content-4 ul li{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 13px;
+}
+/* Media query for mobile view */
+@media screen and (max-width: 768px) {
+  .PanTan-content-1 h6 {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+
+  .PanTan-content-1 ul,  .PanTan-content-2 ul ,.PanTan-content-3 ul ,.PanTan-content-4 ul  {
+    padding-left: 15px; /* Adjust padding for smaller screens */
+  }
+}
+table {
+  width: auto; /* Adjust width as needed */
+  margin: 20px auto; /* Center the table horizontally and add margin */
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #e3e2e2;
+  padding: 8px;
+  text-align: left;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 100;
+  letter-spacing: 1px;
+  font-size: 13px;
+}
+
+th {
+  background-color: #eeebeb;
+}
+
+/* Accounting */
+.Accounting-container{
+  height: 200px;
+  background-image: url('/public/images/contact-back.jpg');
+  background-size:cover;
+  background-position:auto;
+}
+.Accounting-container h1{
+  text-align: center;
+  color: white;
+  padding-top: 90px;
+}
+.Accounting-content h3,.Accounting-content h4{
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-decoration: underline;
+}
+.Accounting-content h5{
+  text-decoration: underline;
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.Accounting-content-1 p,.Accounting-content-2 p,.Accounting-content-2 p{
+text-align: center;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+padding: 10px;
+}
+.Accounting-content {
+  /* display: flex; */
+  flex-wrap: wrap;
+}
+
+.Accounting-content-1 h3,.Accounting-content-2 h3,.Accounting-content-3 h3{ 
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.Accounting-content p
+{
+  width: 80%;
+  margin: 0 auto; /* Center the paragraph within the container */
+  text-align: justify;
+}
+
+@media screen and (min-width: 768px) {
+  .Accounting-content {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+ .Accounting-content{
+    width: 33.33%;
+  }
+}
+.Accounting-content-1 ul ,.Accounting-content-2 ul,.Accounting-content-3 ul{
+  list-style-type: disc; /* Apply disc style to the list */
+  padding-left: 20px; 
+  padding: 10px;
+}
+
+
+
+.Accounting-content-1 ul ,.Accounting-content-2 ul,.Accounting-content-3 ul {
+  list-style-type: disc;
+  padding-left: 15px; 
+  margin-left: 30%;
+
+}
+.Accounting-content-1 ul li,.Accounting-content-2 ul li,.Accounting-content-3 ul li{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 13px;
+}
+/* Media query for mobile view */
+@media screen and (max-width: 768px) {
+  .Accounting-content-1 h6,.Accounting-content-2 h6 ,.Accounting-content-3 h6  {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+
+  .Accounting-content-1 ul,.Accounting-content-2 ul,.Accounting-content-3 ul   {
+    padding-left: 15px; /* Adjust padding for smaller screens */
+  }
+}
+
+/* Professional Tax */
+.ProfessionalTax-container{
+  height: 200px;
+  background-image: url('/public/images/contact-back.jpg');
+  background-size:cover;
+  background-position:auto;
+}
+.ProfessionalTax-container h1{
+  text-align: center;
+  color: white;
+  padding-top: 90px;
+}
+.ProfessionalTax-content h3,.ProfessionalTax-content h4{
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-decoration: underline;
+}
+.ProfessionalTax-content h5{
+  text-decoration: underline;
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.ProfessionalTax-content-1 p{
+text-align: center;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+padding: 10px;
+}
+.ProfessionalTax-content {
+  /* display: flex; */
+  flex-wrap: wrap;
+}
+
+.ProfessionalTax-content-1 h3{ 
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.ProfessionalTax-content p
+{
+  width: 80%;
+  margin: 0 auto; 
+  text-align: justify;
+  
+}
+
+@media screen and (min-width: 768px) {
+  .ProfessionalTax-content{
+    width: 50%;
+  }
+  
+}
+
+
+@media screen and (min-width: 1024px) {
+ .ProfessionalTax-content{
+    width: 33.33%;
+  }
+
+}
+.ProfessionalTax-content-1 ul{
+  list-style-type: disc; 
+  padding-left: 20px; 
+  padding: 10px;
+}
+
+
+
+.ProfessionalTax-content-1 ul  {
+  list-style-type: disc;
+  padding-left: 15px; 
+  margin-left: 25%;
+
+}
+.ProfessionalTax-content-1 ul li{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 13px;
+}
+/* Media query for mobile view */
+@media screen and (max-width: 768px) {
+  .ProfessionalTax-content-1 h6  {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+
+  .ProfessionalTax-content-1 ul   {
+    padding-left: 15px; /* Adjust padding for smaller screens */
+  }
+}
+/* Trademark Registration */
+
+.TrademarkReg-container{
+  height: 200px;
+  background-image: url('/public/images/contact-back.jpg');
+  background-size:cover;
+  background-position:auto;
+}
+.TrademarkReg-container h1{
+  text-align: center;
+  color: white;
+  padding-top: 90px;
+}
+.TrademarkReg-content h3,.TrademarkReg-content h4{
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-decoration: underline;
+}
+.TrademarkReg-content h5{
+  text-decoration: underline;
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.TrademarkReg-content-1 p{
+text-align: center;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+padding: 10px;
+}
+.TrademarkReg-content {
+  /* display: flex; */
+  flex-wrap: wrap;
+}
+
+.TrademarkReg-content-1 h3{ 
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.TrademarkReg-content p
+{
+  width: 80%;
+  margin: 0 auto; 
+  text-align: justify;
+  
+}
+
+@media screen and (min-width: 768px) {
+  .TrademarkReg-content{
+    width: 50%;
+  }
+  
+}
+
+
+@media screen and (min-width: 1024px) {
+ .TrademarkReg-content{
+    width: 33.33%;
+  }
+
+}
+.TrademarkReg-content-1 ul{
+  list-style-type: disc; 
+  padding-left: 20px; 
+  padding: 10px;
+}
+
+
+
+.TrademarkReg-content-1 ul  {
+  list-style-type: disc;
+  padding-left: 15px; 
+  margin-left: 25%;
+
+}
+.TrademarkReg-content-1 ul li{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 13px;
+}
+/* Media query for mobile view */
+@media screen and (max-width: 768px) {
+  .TrademarkReg-content-1h6  {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+
+  .TrademarkReg-content-1 ul   {
+    padding-left: 15px; /* Adjust padding for smaller screens */
+  }
+}
+
+/* PVTLTD  */
+
+.PVTLTD-container{
+  height: 200px;
+  background-image: url('/public/images/contact-back.jpg');
+  background-size:cover;
+  background-position:auto;
+}
+.PVTLTD-container h1{
+  text-align: center;
+  color: white;
+  padding-top: 90px;
+}
+.PVTLTD-content h3,.PVTLTD-content   h4{
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-decoration: underline;
+}
+.PVTLTD-content h5{
+  text-decoration: underline;
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.PVTLTD-content-1 p{
+text-align: center;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+padding: 10px;
+}
+.PVTLTD-content {
+  /* display: flex; */
+  flex-wrap: wrap;
+}
+
+.PVTLTD-content-1 h3{ 
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.PVTLTD-content p
+{
+  width: 80%;
+  margin: 0 auto; 
+  text-align: justify;
+  
+}
+
+@media screen and (min-width: 768px) {
+  .PVTLTD-content{
+    width: 50%;
+  }
+  
+}
+
+
+@media screen and (min-width: 1024px) {
+ .PVTLTD-content{
+    width: 33.33%;
+  }
+
+}
+.PVTLTD-content-1 ul{
+  list-style-type: disc; 
+  padding-left: 20px; 
+  padding: 10px;
+}
+
+
+
+.PVTLTD-content-1 ul  {
+  list-style-type: disc;
+  padding-left: 15px; 
+  margin-left: 25%;
+
+}
+.PVTLTD-content-1 ul li{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 13px;
+}
+/* Media query for mobile view */
+@media screen and (max-width: 768px) {
+  .PVTLTD-content-1 h6  {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+
+  .PVTLTD-content-1 ul   {
+    padding-left: 15px; /* Adjust padding for smaller screens */
+  }
+}
+
+/* LLP */
+.LLP-container{
+  height: 200px;
+  background-image: url('/public/images/contact-back.jpg');
+  background-size:cover;
+  background-position:auto;
+}
+.LLP-container h1{
+  text-align: center;
+  color: white;
+  padding-top: 90px;
+}
+.LLP-content h3,.LLP-content   h4{
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-decoration: underline;
+}
+.LLP-content h5{
+  text-decoration: underline;
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.LLP-content-1 p{
+text-align: center;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+padding: 10px;
+}
+.LLP-content {
+  /* display: flex; */
+  flex-wrap: wrap;
+}
+
+.LLP-content-1 h3{ 
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.LLP-content p
+{
+  width: 80%;
+  margin: 0 auto; 
+  text-align: justify;
+  
+}
+
+@media screen and (min-width: 768px) {
+  .LLP-content{
+    width: 50%;
+  }
+  
+}
+
+
+@media screen and (min-width: 1024px) {
+ .LLP-content{
+    width: 33.33%;
+  }
+
+}
+.LLP-content-1 ul{
+  list-style-type: disc; 
+  padding-left: 20px; 
+  padding: 10px;
+}
+
+
+
+.LLP-content-1 ul  {
+  list-style-type: disc;
+  padding-left: 15px; 
+  margin-left: 25%;
+
+}
+.LLP-content-1 ul li{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 13px;
+}
+/* Media query for mobile view */
+@media screen and (max-width: 768px) {
+  .LLP-content-1 h6  {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+
+  .LLP-content-1 ul   {
+    padding-left: 15px; /* Adjust padding for smaller screens */
+  }
+}
+
+/* OPC */
+.OPC-container{
+  height: 200px;
+  background-image: url('/public/images/contact-back.jpg');
+  background-size:cover;
+  background-position:auto;
+}
+.OPC-container h1{
+  text-align: center;
+  color: white;
+  padding-top: 90px;
+}
+.OPC-content h3,.OPC-content  h4{
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-decoration: underline;
+}
+.OPC-content h5{
+  text-decoration: underline;
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.OPC-content-1 p{
+text-align: center;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+padding: 10px;
+}
+.OPC-content {
+  /* display: flex; */
+  flex-wrap: wrap;
+}
+
+.OPC-content-1 h3{ 
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.OPC-content p
+{
+  width: 80%;
+  margin: 0 auto; 
+  text-align: justify;
+  
+}
+
+@media screen and (min-width: 768px) {
+  .OPC-content{
+    width: 50%;
+  }
+  
+}
+
+
+@media screen and (min-width: 1024px) {
+ .OPC-content{
+    width: 33.33%;
+  }
+
+}
+.OPC-content-1 ul{
+  list-style-type: disc; 
+  padding-left: 20px; 
+  padding: 10px;
+}
+
+
+
+.OPC-content-1 ul  {
+  list-style-type: disc;
+  padding-left: 15px; 
+  margin-left: 25%;
+
+}
+.OPC-content-1 ul li{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 13px;
+}
+/* Media query for mobile view */
+@media screen and (max-width: 768px) {
+  .OPC-content-1 h6  {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+
+  .OPC-content-1 ul   {
+    padding-left: 15px; /* Adjust padding for smaller screens */
+  }
+}
+
+/* SOLE */
+.SOLE-container{
+  height: 200px;
+  background-image: url('/public/images/contact-back.jpg');
+  background-size:cover;
+  background-position:auto;
+}
+.SOLE-container h1{
+  text-align: center;
+  color: white;
+  padding-top: 90px;
+}
+.SOLE-content h3,.SOLE-content  h4{
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-decoration: underline;
+}
+.SOLE-content h5{
+  text-decoration: underline;
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.SOLE-content-1 p{
+text-align: center;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+padding: 10px;
+}
+.SOLE-content {
+  /* display: flex; */
+  flex-wrap: wrap;
+}
+
+.SOLE-content-1 h3{ 
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.SOLE-content p
+{
+  width: 80%;
+  margin: 0 auto; 
+  text-align: justify;
+  
+}
+
+@media screen and (min-width: 768px) {
+  .SOLE-content{
+    width: 50%;
+  }
+  
+}
+
+
+@media screen and (min-width: 1024px) {
+ .SOLE-content{
+    width: 33.33%;
+  }
+
+}
+.SOLE-content-1 ul{
+  list-style-type: disc; 
+  padding-left: 20px; 
+  padding: 10px;
+}
+
+
+
+.SOLE-content-1 ul  {
+  list-style-type: disc;
+  padding-left: 15px; 
+  margin-left: 25%;
+
+}
+.SOLE-content-1 ul li{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 13px;
+}
+/* Media query for mobile view */
+@media screen and (max-width: 768px) {
+  .SOLE-content-1 h6  {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+
+  .SOLE-content-1 ul   {
+    padding-left: 15px; /* Adjust padding for smaller screens */
+  }
+}
+
+/* Partnership */
+.Partnership-container{
+  height: 200px;
+  background-image: url('/public/images/contact-back.jpg');
+  background-size:cover;
+  background-position:auto;
+}
+.Partnership-container h1{
+  text-align: center;
+  color: white;
+  padding-top: 90px;
+}
+.Partnership-content h3,.Partnership-content  h4{
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-decoration: underline;
+}
+.Partnership-content h5{
+  text-decoration: underline;
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.Partnership-content-1 p{
+text-align: center;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+padding: 10px;
+}
+.Partnership-content {
+  /* display: flex; */
+  flex-wrap: wrap;
+}
+
+.Partnership-content-1 h3{ 
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.Partnership-content p
+{
+  width: 80%;
+  margin: 0 auto; 
+  text-align: justify;
+  
+}
+
+@media screen and (min-width: 768px) {
+  .Partnership-content{
+    width: 50%;
+  }
+  
+}
+
+
+@media screen and (min-width: 1024px) {
+ .Partnership-content{
+    width: 33.33%;
+  }
+
+}
+.Partnership-content-1 ul{
+  list-style-type: disc; 
+  padding-left: 20px; 
+  padding: 10px;
+}
+
+
+
+.Partnership-content-1 ul  {
+  list-style-type: disc;
+  padding-left: 15px; 
+  margin-left: 25%;
+
+}
+.Partnership-content-1 ul li{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 13px;
+}
+/* Media query for mobile view */
+@media screen and (max-width: 768px) {
+  .Partnership-content-1 h6  {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+
+  .Partnership-content-1 ul   {
+    padding-left: 15px; /* Adjust padding for smaller screens */
+  }
+}
+
+/* SaleDeed */
+.SaleDeed-container{
+  height: 200px;
+  background-image: url('/public/images/contact-back.jpg');
+  background-size:cover;
+  background-position:auto;
+}
+.SaleDeed-container h1{
+  text-align: center;
+  color: white;
+  padding-top: 90px;
+}
+.SaleDeed-content h3,.SaleDeed-content  h4{
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-decoration: underline;
+}
+.SaleDeed-content h5{
+  text-decoration: underline;
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.SaleDeed-content-1 p{
+text-align: center;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+padding: 10px;
+}
+.SaleDeed-content {
+  /* display: flex; */
+  flex-wrap: wrap;
+}
+
+.SaleDeed-content-1 h3{ 
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.SaleDeed-content p
+{
+  width: 80%;
+  margin: 0 auto; 
+  text-align: justify;
+  
+}
+
+@media screen and (min-width: 768px) {
+  .SaleDeed-content{
+    width: 50%;
+  }
+  
+}
+
+
+@media screen and (min-width: 1024px) {
+ .SaleDeed-content{
+    width: 33.33%;
+  }
+
+}
+.SaleDeed-content-1 ul{
+  list-style-type: disc; 
+  padding-left: 20px; 
+  padding: 10px;
+}
+
+
+
+.SaleDeed-content-1 ul  {
+  list-style-type: disc;
+  padding-left: 15px; 
+  margin-left: 25%;
+
+}
+.SaleDeed-content-1 ul li{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 13px;
+}
+/* Media query for mobile view */
+@media screen and (max-width: 768px) {
+  .SaleDeed-content-1 h6  {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+
+  .SaleDeed-content-1 ul   {
+    padding-left: 15px; /* Adjust padding for smaller screens */
+  }
+}
+
+/* GiftDeed */
+.GiftDeed-container{
+  height: 200px;
+  background-image: url('/public/images/contact-back.jpg');
+  background-size:cover;
+  background-position:auto;
+}
+.GiftDeed-container h1{
+  text-align: center;
+  color: white;
+  padding-top: 90px;
+}
+.GiftDeed-content h3,.GiftDeed-content  h4{
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-decoration: underline;
+}
+.GiftDeed-content h5{
+  text-decoration: underline;
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.GiftDeed-content-1 p{
+text-align: center;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+padding: 10px;
+}
+.GiftDeed-content{
+  /* display: flex; */
+  flex-wrap: wrap;
+}
+
+.GiftDeed-content-1 h3{ 
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.GiftDeed-content p
+{
+  width: 80%;
+  margin: 0 auto; 
+  text-align: justify;
+  
+}
+
+@media screen and (min-width: 768px) {
+  .GiftDeed-content{
+    width: 50%;
+  }
+  
+}
+
+
+@media screen and (min-width: 1024px) {
+ .GiftDeed-content{
+    width: 33.33%;
+  }
+
+}
+.GiftDeed-content-1 ul{
+  list-style-type: disc; 
+  padding-left: 20px; 
+  padding: 10px;
+}
+
+
+
+.GiftDeed-content-1 ul  {
+  list-style-type: disc;
+  padding-left: 15px; 
+  margin-left: 25%;
+
+}
+.GiftDeed-content-1 ul li{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 13px;
+}
+/* Media query for mobile view */
+@media screen and (max-width: 768px) {
+  .GiftDeed-content-1 h6  {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+
+  .GiftDeed-content-1 ul   {
+    padding-left: 15px; /* Adjust padding for smaller screens */
+  }
+}
+
+/* RentAgreement */
+.RentAgreement-container{
+  height: 200px;
+  background-image: url('/public/images/contact-back.jpg');
+  background-size:cover;
+  background-position:auto;
+}
+.RentAgreement-container h1{
+  text-align: center;
+  color: white;
+  padding-top: 90px;
+}
+.RentAgreement-content h3,.RentAgreement-content  h4{
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-decoration: underline;
+}
+.RentAgreement-content h5{
+  text-decoration: underline;
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.RentAgreement-content-1 p{
+text-align: center;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+padding: 10px;
+}
+.RentAgreement-content{
+  /* display: flex; */
+  flex-wrap: wrap;
+}
+
+.RentAgreement-content-1 h3{ 
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.RentAgreement-content p
+{
+  width: 80%;
+  margin: 0 auto; 
+  text-align: justify;
+  
+}
+
+@media screen and (min-width: 768px) {
+  .RentAgreement-content{
+    width: 50%;
+  }
+  
+}
+
+
+@media screen and (min-width: 1024px) {
+ .RentAgreement-content{
+    width: 33.33%;
+  }
+
+}
+.RentAgreement-content-1 ul{
+  /* list-style-type: disc;  */
+  padding-left: 20px; 
+  padding: 10px;
+}
+
+
+
+.RentAgreement-content-1 ul  {
+  /* list-style-type: disc; */
+  padding-left: 15px; 
+  margin-left: 25%;
+
+}
+.RentAgreement-content-1 ul li{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 13px;
+}
+/* Media query for mobile view */
+@media screen and (max-width: 768px) {
+  .RentAgreement-content-1 h6  {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+
+  .RentAgreement-content-1 ul   {
+    padding-left: 15px; /* Adjust padding for smaller screens */
+  }
+}
+
+/* Legal Affidavit */
+
+.LegalAffidavit-container{
+  height: 200px;
+  background-image: url('/public/images/contact-back.jpg');
+  background-size:cover;
+  background-position:auto;
+}
+.LegalAffidavit-container h1{
+  text-align: center;
+  color: white;
+  padding-top: 90px;
+}
+.LegalAffidavit-content h3,.LegalAffidavit-content  h4{
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-decoration: underline;
+}
+.LegalAffidavit-content h5{
+  text-decoration: underline;
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.LegalAffidavit-content-1 p{
+text-align: center;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+padding: 10px;
+}
+.LegalAffidavit-content{
+  /* display: flex; */
+  flex-wrap: wrap;
+}
+
+.LegalAffidavit-content-1 h3{ 
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.LegalAffidavit-content p
+{
+  width: 80%;
+  margin: 0 auto; 
+  text-align: justify;
+  
+}
+
+@media screen and (min-width: 768px) {
+  .LegalAffidavit-content{
+    width: 50%;
+  }
+  
+}
+
+
+@media screen and (min-width: 1024px) {
+ .LegalAffidavit-content{
+    width: 33.33%;
+  }
+
+}
+.LegalAffidavit-content-1 ul{
+  list-style-type: disc; 
+  padding-left: 20px; 
+  padding: 10px;
+}
+
+
+
+.LegalAffidavit-content-1 ul  {
+  list-style-type: disc;
+  padding-left: 15px; 
+  margin-left: 25%;
+
+}
+.LegalAffidavit-content-1 ul li{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 13px;
+}
+/* Media query for mobile view */
+@media screen and (max-width: 768px) {
+  .LegalAffidavit-content-1 h6  {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+
+  .LegalAffidavit-content-1 ul   {
+    padding-left: 15px; /* Adjust padding for smaller screens */
+  }
+}
+
+
+/* PartnershipDeed */
+.PartnershipDeed-container{
+  height: 200px;
+  background-image: url('/public/images/contact-back.jpg');
+  background-size:cover;
+  background-position:auto;
+}
+.PartnershipDeed-container h1{
+  text-align: center;
+  color: white;
+  padding-top: 90px;
+}
+.PartnershipDeed-content h3,.PartnershipDeed-content  h4{
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-decoration: underline;
+}
+.PartnershipDeed-content h5{
+  text-decoration: underline;
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.PartnershipDeed-content-1 p{
+text-align: center;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+padding: 10px;
+}
+.PartnershipDeed-content{
+  /* display: flex; */
+  flex-wrap: wrap;
+}
+
+.PartnershipDeed-content-1 h3{ 
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.PartnershipDeed-content p
+{
+  width: 80%;
+  margin: 0 auto; 
+  text-align: justify;
+}
+
+@media screen and (min-width: 768px) {
+  .PartnershipDeed-content{
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+ .PartnershipDeed-content{
+    width: 33.33%;
+  }
+}
+.PartnershipDeed-content-1 ul{
+  list-style-type: disc; 
+  padding-left: 20px; 
+  padding: 10px;
+}
+
+.PartnershipDeed-content-1 ul  {
+  list-style-type: disc;
+  padding-left: 15px; 
+  margin-left: 25%;
+}
+.PartnershipDeed-content-1 ul li{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 13px;
+}
+/* Media query for mobile view */
+@media screen and (max-width: 768px) {
+  .PartnershipDeed-content-1 h6  {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+  .PartnershipDeed-content-1 ul   {
+    padding-left: 15px; /* Adjust padding for smaller screens */
+  }
+}
+
+/* PowerOfAttomany */
+.PowerOFAttorney-container{
+  height: 200px;
+  background-image: url('/public/images/contact-back.jpg');
+  background-size:cover;
+  background-position:auto;
+}
+.PowerOFAttorney-container h1{
+  text-align: center;
+  color: white;
+  padding-top: 90px;
+}
+.PowerOFAttorney-content h3,.PowerOFAttorney-content  h4{
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-decoration: underline;
+}
+.PowerOFAttorney-content h5{
+  text-decoration: underline;
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.PowerOFAttorney-content-1 p{
+text-align: center;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+padding: 10px;
+}
+.PowerOFAttorney-content{
+  /* display: flex; */
+  flex-wrap: wrap;
+}
+
+.PowerOFAttorney-content-1 h3{ 
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.PowerOFAttorney-content p
+{
+  width: 80%;
+  margin: 0 auto; 
+  text-align: justify;
+}
+
+@media screen and (min-width: 768px) {
+  .PowerOFAttorney-content{
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+ .PowerOFAttorney-content{
+    width: 33.33%;
+  }
+}
+.PowerOFAttorney-content-1 ul{
+  list-style-type: disc; 
+  padding-left: 20px; 
+  padding: 10px;
+}
+
+.PowerOFAttorney-content-1 ul  {
+  list-style-type: disc;
+  padding-left: 15px; 
+  margin-left: 25%;
+}
+.PowerOFAttorney-content-1 ul li{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 13px;
+}
+/* Media query for mobile view */
+@media screen and (max-width: 768px) {
+  .PowerOFAttorney-content-1 h6  {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+  .PowerOFAttorney-content-1 ul   {
+    padding-left: 15px; /* Adjust padding for smaller screens */
+  }
+}
+
+
+/* UdyogAadhar */
+.UdyogAadhar-container{
+  height: 200px;
+  background-image: url('/public/images/contact-back.jpg');
+  background-size:cover;
+  background-position:auto;
+}
+.UdyogAadhar-container h1{
+  text-align: center;
+  color: white;
+  padding-top: 90px;
+}
+.UdyogAadhar-content h3,.UdyogAadhar-content  h4{
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-decoration: underline;
+}
+.UdyogAadhar-content h5{
+  text-decoration: underline;
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.UdyogAadhar-content-1 p{
+text-align: center;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+padding: 10px;
+}
+.UdyogAadhar-content{
+  /* display: flex; */
+  flex-wrap: wrap;
+}
+
+.UdyogAadhar-content-1 h3{ 
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.UdyogAadhar-content p
+{
+  width: 80%;
+  margin: 0 auto; 
+  text-align: justify;
+}
+
+@media screen and (min-width: 768px) {
+  .UdyogAadhar-content{
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+ .UdyogAadhar-content{
+    width: 33.33%;
+  }
+}
+.UdyogAadhar-content-1 ul{
+  list-style-type: disc; 
+  padding-left: 20px; 
+  padding: 10px;
+}
+
+.UdyogAadhar-content-1 ul  {
+  list-style-type: disc;
+  padding-left: 15px; 
+  margin-left: 25%;
+}
+.UdyogAadhar-content-1 ul li{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 13px;
+}
+/* Media query for mobile view */
+@media screen and (max-width: 768px) {
+  .UdyogAadhar-content-1 h6  {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+  .UdyogAadhar-content-1 ul   {
+    padding-left: 15px; /* Adjust padding for smaller screens */
+  }
+}
+
+
+/* Shop */
+.Shop-container{
+  height: 200px;
+  background-image: url('/public/images/contact-back.jpg');
+  background-size:cover;
+  background-position:auto;
+}
+.Shop-container h1{
+  text-align: center;
+  color: white;
+  padding-top: 90px;
+}
+.Shop-content h3,.Shop-content  h4{
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-decoration: underline;
+}
+.Shop-content h5{
+  text-decoration: underline;
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.Shop-content-1 p{
+text-align: center;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+padding: 10px;
+}
+.Shop-content{
+  /* display: flex; */
+  flex-wrap: wrap;
+}
+
+.Shop-content-1 h3{ 
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.Shop-content p
+{
+  width: 80%;
+  margin: 0 auto; 
+  text-align: justify;
+}
+
+@media screen and (min-width: 768px) {
+  .Shop-content{
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+ .Shop-content{
+    width: 33.33%;
+  }
+}
+.Shop-content-1 ul{
+  list-style-type: disc; 
+  padding-left: 20px; 
+  padding: 10px;
+}
+
+.Shop-content-1 ul  {
+  list-style-type: disc;
+  padding-left: 15px; 
+  margin-left: 25%;
+}
+.Shop-content-1 ul li{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 13px;
+}
+/* Media query for mobile view */
+@media screen and (max-width: 768px) {
+  .Shop-content-1 h6  {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+  .Shop-content-1 ul   {
+    padding-left: 15px; /* Adjust padding for smaller screens */
+  }
+}
+/* IEC */
+.IEC-container{
+  height: 200px;
+  background-image: url('/public/images/contact-back.jpg');
+  background-size:cover;
+  background-position:auto;
+}
+.IEC-container h1{
+  text-align: center;
+  color: white;
+  padding-top: 90px;
+}
+.IEC-content h3,.IEC-content  h4{
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-decoration: underline;
+}
+.IEC-content h5{
+  text-decoration: underline;
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.IEC-content-1 p{
+text-align: center;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+padding: 10px;
+}
+.IEC-content{
+  /* display: flex; */
+  flex-wrap: wrap;
+}
+
+.IEC-content-1 h3{ 
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.IEC-content p
+{
+  width: 80%;
+  margin: 0 auto; 
+  text-align: justify;
+}
+
+@media screen and (min-width: 768px) {
+  .IEC-content{
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+ .IEC-content{
+    width: 33.33%;
+  }
+}
+.IEC-content-1 ul{
+  list-style-type: disc; 
+  padding-left: 20px; 
+  padding: 10px;
+}
+
+.IEC-content-1 ul  {
+  list-style-type: disc;
+  padding-left: 15px; 
+  margin-left: 25%;
+}
+.IEC-content-1 ul li{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 13px;
+padding: 4px;
+
+}
+/* Media query for mobile view */
+@media screen and (max-width: 768px) {
+  .IEC-content-1 h6  {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+  .IEC-content-1 ul   {
+    padding-left: 15px; /* Adjust padding for smaller screens */
+  }
+}
+
+/* DSC */
+.DSC-container{
+  height: 200px;
+  background-image: url('/public/images/contact-back.jpg');
+  background-size:cover;
+  background-position:auto;
+}
+.DSC-container h1{
+  text-align: center;
+  color: white;
+  padding-top: 90px;
+}
+.DSC-content h3,.DSC-content  h4{
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-decoration: underline;
+}
+.DSC-content h5{
+  text-decoration: underline;
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.DSC-content-1 p{
+text-align: center;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+padding: 10px;
+}
+.DSC-content{
+  /* display: flex; */
+  flex-wrap: wrap;
+}
+
+.DSC-content-1 h3{ 
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.DSC-content p
+{
+  width: 80%;
+  margin: 0 auto; 
+  text-align: justify;
+}
+
+@media screen and (min-width: 768px) {
+  .DSC-content{
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+ .DSC-content{
+    width: 33.33%;
+  }
+}
+.DSC-content-1 ul{
+  list-style-type: disc; 
+  padding-left: 20px; 
+  padding: 10px;
+}
+
+.DSC-content-1 ul  {
+  list-style-type: disc;
+  padding-left: 15px; 
+  margin-left: 25%;
+}
+.DSC-content-1 ul li{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 13px;
+padding: 4px;
+
+}
+/* Media query for mobile view */
+@media screen and (max-width: 768px) {
+  .DSC-content-1 h6  {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+  .DSC-content-1 ul   {
+    padding-left: 15px; /* Adjust padding for smaller screens */
+  }
+}
+
+/* check bounce notice */
+.CheckBounce-container{
+  height: 200px;
+  background-image: url('/public/images/contact-back.jpg');
+  background-size:cover;
+  background-position:auto;
+}
+.CheckBounce-container h1{
+  text-align: center;
+  color: white;
+  padding-top: 90px;
+}
+.CheckBounce-content h3,.CheckBounce-content  h4{
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-decoration: underline;
+}
+.CheckBounce-content h5{
+  text-decoration: underline;
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.CheckBounce-content-1 p{
+text-align: center;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+padding: 10px;
+}
+.CheckBounce-content{
+  /* display: flex; */
+  flex-wrap: wrap;
+}
+
+.CheckBounce-content-1 h3{ 
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.CheckBounce-content p
+{
+  width: 80%;
+  margin: 0 auto; 
+  text-align: justify;
+}
+
+@media screen and (min-width: 768px) {
+  .CheckBounce-content{
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+ .CheckBounce-content{
+    width: 33.33%;
+  }
+}
+.CheckBounce-content-1 ul{
+  list-style-type: disc; 
+  padding-left: 20px; 
+  padding: 10px;
+}
+
+.CheckBounce-content-1 ul  {
+  list-style-type: disc;
+  padding-left: 15px; 
+  margin-left: 25%;
+}
+.CheckBounce-content-1 ul li{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 13px;
+padding: 4px;
+
+}
+/* Media query for mobile view */
+@media screen and (max-width: 768px) {
+  .CheckBounce-content-1 h6  {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+  .CheckBounce-content-1 ul   {
+    padding-left: 15px; /* Adjust padding for smaller screens */
+  }
+}
+
+/* Mutual  */
+.mutual-container{
+  height: 200px;
+  background-image: url('/public/images/contact-back.jpg');
+  background-size:cover;
+  background-position:auto;
+}
+.mutual-container h1{
+  text-align: center;
+  color: white;
+  padding-top: 90px;
+}
+.mutual-content h3,.mutual-content  h4{
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-decoration: underline;
+}
+.mutual-content h5{
+  text-decoration: underline;
+  text-align: center;
+letter-spacing: 1px;
+  padding: 10px;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.mutual-content-1 p{
+text-align: center;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 15px;
+padding: 10px;
+}
+.mutual-content{
+  /* display: flex; */
+  flex-wrap: wrap;
+}
+
+.mutual-content-1 h3{ 
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.mutual-content p
+{
+  width: 80%;
+  margin: 0 auto; 
+  text-align: justify;
+}
+
+@media screen and (min-width: 768px) {
+  .mutual-content{
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+ .mutual-content{
+    width: 33.33%;
+  }
+}
+.mutual-content-1 ul{
+  list-style-type: disc; 
+  padding-left: 20px; 
+  padding: 10px;
+}
+
+.mutual-content-1 ul  {
+  list-style-type: disc;
+  padding-left: 15px; 
+  margin-left: 25%;
+}
+.mutual-content-1 ul li{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: 100;
+letter-spacing: 1px;
+font-size: 13px;
+padding: 4px;
+
+}
+/* Media query for mobile view */
+@media screen and (max-width: 768px) {
+  .mutual-content-1 h6  {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+  .mutual-content-1 ul   {
+    padding-left: 15px; /* Adjust padding for smaller screens */
+  }
+}
+
+
+.image-boxes,
+.image-boxes-1,
+.image-boxes-stratabusiness,
+.image-boxes-1-stratabusiness,
+.image-boxes-property,
+.image-boxes-1-property,
+.image-boxes-gov,
+.image-boxes-1-gov{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;  
+}
+
+.image-box-1,
+.image-box-2,
+.image-box-3,
+.image-box-11,
+.image-box-12,
+.image-box-13 ,
+.image-box-1-sb,
+.image-box-2-sb,
+.image-box-3-sb,
+.image-box-11-sb,
+.image-box-12-sb,
+.image-box-13-sb,
+.image-box-1-property,
+.image-box-2-property,
+.image-box-3-property,
+.image-box-11-property,
+.image-box-12-property,
+.image-box-13-property,
+.image-box-1-gov,
+.image-box-2-gov,
+.image-box-3-gov,
+.image-box-11-gov,
+.image-box-12-gov,
+.image-box-13-gov  {
+  position: relative;
+  width: 350px;
+  height: 250px;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.image-box-1 img,
+.image-box-2 img,
+.image-box-3 img,
+.image-box-11 img,
+.image-box-12 img,
+.image-box-13 img ,
+.image-box-1-sb img,
+.image-box-2-sb img,
+.image-box-3-sb img,
+.image-box-11-sb img,
+.image-box-12-sb img,
+.image-box-13-sb img,
+.image-box-1-property img,
+.image-box-2-property img,
+.image-box-3-property img,
+.image-box-11-property img,
+.image-box-12-property img,
+.image-box-13-property img,
+.image-box-1-gov img,
+.image-box-2-gov img,
+.image-box-3-gov img,
+.image-box-11-gov img,
+.image-box-12-gov img,
+.image-box-13-gov img  {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-box-1:hover img,
+.image-box-2:hover img,
+.image-box-3:hover img,
+.image-box-11:hover img,
+.image-box-12:hover img,
+.image-box-13:hover img ,
+.image-box-1-sb:hover img,
+.image-box-2-sb:hover img,
+.image-box-3-sb:hover img,
+.image-box-11-sb:hover img,
+.image-box-12-sb:hover img,
+.image-box-13-sb:hover img,
+.image-box-1-property:hover img,
+.image-box-2-property:hover img,
+.image-box-3-property:hover img,
+.image-box-11-property:hover img,
+.image-box-12-property:hover img,
+.image-box-13-property:hover img,
+.image-box-1-gov:hover img,
+.image-box-2-gov:hover img,
+.image-box-3-gov:hover img,
+.image-box-11-gov:hover img,
+.image-box-12-gov:hover img,
+.image-box-13-gov:hover img {
+  transform: translateY(-20px);
+}
+
+.image-text-1,
+.image-text-2,
+.image-text-3,
+.image-text-11,
+.image-text-12,
+.image-text-13 ,
+.image-text-1-sb,
+.image-text-2-sb,
+.image-text-3-sb,
+.image-text-11-sb,
+.image-text-12-sb,
+.image-text-13-sb,
+.image-text-1-property,
+.image-text-2-property,
+.image-text-3-property,
+.image-text-11-property,
+.image-text-12-property,
+.image-text-13-property,
+.image-text-1-gov,
+.image-text-2-gov,
+.image-text-3-gov,
+.image-text-11-gov,
+.image-text-12-gov,
+.image-text-13-gov {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #00314a;
+  color: #fff;
+  padding: 8px;
+  text-align: center;
+  font-size: 14px;
 }
